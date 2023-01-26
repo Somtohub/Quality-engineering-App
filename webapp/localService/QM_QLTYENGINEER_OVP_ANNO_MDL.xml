@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Copyright (C) 2009-2021 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/qm_qltyengineer_ovp_srv/$metadata"><edmx:Include Namespace="QM_QLTYENGINEER_OVP_SRV" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema Namespace="qm_qltyengineer_ovp_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/DefectCode"><Annotation Term="UI.HiddenFilter"/><Annotation Term="Common.SemanticObject" String="Defect"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/DefectCodeGroup"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/DefectCodeText"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/NumberOfDefects"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/DefectCategory_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/DefectCode_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/DefectCodeGroup_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/InspectionLot_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/Material_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/Plant_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType">
+				<Annotation Term="UI.Chart" Qualifier="DefectiveCode">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>DefectCodeGroup</PropertyPath>
+								<PropertyPath>DefectCode</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="DefectCodeGroup"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="DefectCode"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>NumberOfDefects</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="NumberOfDefects"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NumberOfDefects">
+					<Record><PropertyValue Property="Value" Path="NumberOfDefects"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Defects"/><PropertyValue Property="SemanticObject" String="Defect"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="topDefectiveCode">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="NumberOfDefects"/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last30Days">
+					<Record><PropertyValue Property="Text" String="Last 30 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="29"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last7Days">
+					<Record><PropertyValue Property="Text" String="Last 7 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="6"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last2Days">
+					<Record><PropertyValue Property="Text" String="Last 2 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="1"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="today">
+					<Record><PropertyValue Property="Text" String="Today"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/><PropertyValue Property="Low" Int="0"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/DefectCategory_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/DefectCode_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/DefectCodeGroup_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/InspectionLot_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/Material_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/Plant_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/Defect"><Annotation Term="Common.SemanticObject" String="Defect"/></Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/NumberOfDefects"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType">
+				<Annotation Term="UI.Chart" Qualifier="defectsByLotOrigin">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>InspectionLotOrigin</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="InspectionLotOrigin"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>NumberOfDefects</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="NumberOfDefects"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NumberOfDefects">
+					<Record><PropertyValue Property="Value" Path="NumberOfDefects"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Defects"/><PropertyValue Property="SemanticObject" String="Defect"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last30Days">
+					<Record><PropertyValue Property="Text" String="Last 30 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="29"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last7Days">
+					<Record><PropertyValue Property="Text" String="Last 7 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="6"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last2Days">
+					<Record><PropertyValue Property="Text" String="Last 2 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="1"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="today">
+					<Record><PropertyValue Property="Text" String="Today"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/><PropertyValue Property="Low" Int="0"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="FilterExpression" String="Syntaxfehler an Position 0: '...Plant...'"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/Material"><Annotation Term="UI.HiddenFilter"/><Annotation Term="Common.SemanticObject" String="Defect"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/MaterialName"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/NumberOfDefects"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/DefectCategory_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/InspectionLot_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/Material_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/Plant_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType">
+				<Annotation Term="UI.Chart" Qualifier="defectRecording">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Material</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Material"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>NumberOfDefects</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="NumberOfDefects"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#NumberOfDefects"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NumberOfDefects">
+					<Record><PropertyValue Property="Value" Path="NumberOfDefects"/><PropertyValue Property="Title" String="Total Defects"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Defects"/><PropertyValue Property="SemanticObject" String="Defect"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="top3Changed">
+					<Record><PropertyValue Property="MaxItems" Int="5"/>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="NumberOfDefects"/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last30Days">
+					<Record><PropertyValue Property="Text" String="Last 30 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="Material"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/E"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/><PropertyValue Property="Low" String="NULL"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="29"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last7Days">
+					<Record><PropertyValue Property="Text" String="Last 7 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="Material"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/E"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/><PropertyValue Property="Low" String="NULL"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="6"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Last2Days">
+					<Record><PropertyValue Property="Text" String="Last 2 Days"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="Material"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/E"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/><PropertyValue Property="Low" String="NULL"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/LE"/><PropertyValue Property="Low" Int="1"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="today">
+					<Record><PropertyValue Property="Text" String="Today"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="Material"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/E"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/><PropertyValue Property="Low" String="NULL"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record Type="UI.SelectOptionType"><PropertyValue Property="PropertyName" PropertyPath="CalculationDate"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType"><PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/><PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/><PropertyValue Property="Low" Int="0"/></Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspectionLotOVPType">
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Inspection Lot"/><PropertyValue Property="TypeNamePlural" String="Inspection Lots"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField"><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="Value" Path="InspectionLot"/></Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField"><PropertyValue Property="Label" String="Material"/><PropertyValue Property="Value" Path="MaterialName"/></Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem" Qualifier="inspLot">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="InspectionLot"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="MaterialName"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Plant"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="InspectionLotQuantity"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="InspectionLotCreatedOn"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="InspLotSelVar">
+					<Record><PropertyValue Property="Text" String=""/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="FilterExpression" String="Syntaxfehler an Position 0: '...Plant...'"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspLotCustValHelpType/CustomerAccountGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspLotCustValHelpType/AuthorizationGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspLotSuplrValHelpType/SupplierAccountGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspLotSuplrValHelpType/AuthorizationGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/InspLotRsltRecgStatus"><Annotation Term="Common.SemanticObject" String="InspectionLot"/>
+				<Annotation Term="Common.Text" Path="InspLotRsltRecgStatusText"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/InspectionLotCount"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/InspectionLotSum"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType">
+				<Annotation Term="UI.Chart" Qualifier="usageDecision">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>InspLotRsltRecgStatus</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="InspLotRsltRecgStatus"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>InspectionLotCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="InspectionLotCount"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="InspectionLotSum">
+					<Record><PropertyValue Property="Value" Path="InspectionLotSum"/><PropertyValue Property="Title" String="Total"/>
+						<PropertyValue Property="ValueFormat">
+							<Record><PropertyValue Property="NumberOfFractionalDigits" Int="0"/></Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Navigate to Manage Usage Decision"/><PropertyValue Property="SemanticObject" String="InspectionLot"/><PropertyValue Property="Action" String="manageUsageDecision"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="InspSelVar">
+					<Record><PropertyValue Property="Text" String=""/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="FilterExpression" String="Syntaxfehler an Position 0: '...Plant...'"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/QltyCtrlChartAggrgnCriterion"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/QltyCtrlChtDvtnSts"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/Plant"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/InspectionLotOrigin"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/InspectionLotType"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/MatlQualityAuthorizationGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/InspLotSelectionSupplier"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/Manufacturer"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/PurchasingOrganization"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/ManufacturerPartNmbr"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/Customer"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/SoldToParty"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/SalesOrganization"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/InspectionLotHasQuantity"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/BatchStorageLocation"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/InspectionLotStorageLocation"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/Supplier"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/IsBusinessPurposeCompleted"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/AuthorizationGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/QualityControlChart"><Annotation Term="Common.SemanticObject" String="QualityControlChart"/></Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/QltyCtrlChtCnt"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType">
+				<Annotation Term="UI.Chart" Qualifier="controlRecordingByMaterial">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Material</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Material"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>QltyCtrlChtCnt</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="QltyCtrlChtCnt"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#QltyCtrlChtCnt"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="controlRecording">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>WorkCenter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="WorkCenter"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>QltyCtrlChtCnt</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="QltyCtrlChtCnt"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#QltyCtrlChtCnt"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="QltyCtrlChtCnt">
+					<Record><PropertyValue Property="Value" Path="QltyCtrlChtCnt"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Control Charts"/><PropertyValue Property="SemanticObject" String="QualityControlChart"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="top5materials">
+					<Record><PropertyValue Property="MaxItems" Int="5"/>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="QltyCtrlChtCnt"/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="top5workcenters">
+					<Record><PropertyValue Property="MaxItems" Int="5"/>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="QltyCtrlChtCnt"/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/InspectionLot"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/InspLotRsltRecgStatus"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType">
+				<Annotation Term="UI.FieldGroup" Qualifier="InspectionLot">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Plant"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="InspectionLotType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="InspectionLotOrigin"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Label" String="Inspection Lot"/></Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="InventoryManagement">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="InspectionLotHasQuantity"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="BatchStorageLocation"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="InspectionLotStorageLocation"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Label" String="Inventory Management"/></Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Material">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Material"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="MatlQualityAuthorizationGroup"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Label" String="Material"/></Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="Procurement">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Supplier"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Manufacturer"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ManufacturerPartNmbr"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="PurchasingOrganization"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Label" String="Procurement"/></Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="SalesandDistribution">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Customer"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="SoldToParty"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Value" Path="SalesOrganization"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Label" String="Sales and Distribution"/></Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Inspection Lot"/><PropertyValue Property="TypeNamePlural" String="Inspection Lots"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField"><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="Value" Path="InspectionLot"/></Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField"><PropertyValue Property="Label" String="Material"/><PropertyValue Property="Value" Path="Material"/></Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>Plant</PropertyPath>
+						<PropertyPath>InspectionLotOrigin</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType/Material"><Annotation Term="Common.SemanticObject" String="QualityInProcurement"/></Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType/QualityInfoRecordExcptnSpanCnt"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType/QltyInfoRecdBlkStsCnt"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType">
+				<Annotation Term="UI.DataPoint" Qualifier="QltyInfoRecdBlkStsCnt">
+					<Record><PropertyValue Property="Value" Path="QltyInfoRecdBlkStsCnt"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="QualityInfoRecordExcptnSpanCnt">
+					<Record><PropertyValue Property="Value" Path="QualityInfoRecordExcptnSpanCnt"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Quality Info Records"/><PropertyValue Property="SemanticObject" String="QualityInProcurement"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInProcmtBlkFuncVHType/ProcurementBlock">
+				<Annotation Term="Common.Text" Path="ProcurementBlockText"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/Material"><Annotation Term="Common.SemanticObject" String="QualityLevel"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/InspectionLotIsSkipped">
+				<Annotation Term="Common.Text" Path="IsInspectionLotSkippedText"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/SkipStatusCount"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/QualityLevelCount"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType">
+				<Annotation Term="UI.Chart" Qualifier="QltyLvlByChar">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>InspectionLotIsSkipped</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="InspectionLotIsSkipped"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>SkipStatusCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="SkipStatusCount"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="QualityLevelCount">
+					<Record><PropertyValue Property="Value" Path="QualityLevelCount"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Quality Level"/><PropertyValue Property="SemanticObject" String="QualityLevel"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/Material"><Annotation Term="Common.SemanticObject" String="QualityLevel"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/InspectionLotIsSkipped">
+				<Annotation Term="Common.Text" Path="IsInspectionLotSkippedText"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/SkipStatusCount"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/QualityLevelCount"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType">
+				<Annotation Term="UI.Chart" Qualifier="QltyLvlByInspLot">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>InspectionLotIsSkipped</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="InspectionLotIsSkipped"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>SkipStatusCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="SkipStatusCount"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="QualityLevelCount">
+					<Record><PropertyValue Property="Value" Path="QualityLevelCount"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Quality Level"/><PropertyValue Property="SemanticObject" String="QualityLevel"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/Material"><Annotation Term="Common.SemanticObject" String="QualityLevel"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/InspectionSeverity">
+				<Annotation Term="Common.Text" Path="InspectionSeverity_Text"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/QualityLevelCount"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/SkipStatusCount"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType">
+				<Annotation Term="UI.Chart" Qualifier="QltyLvlBySvrty">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Title" String="Quality Levels by Severity"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>InspectionSeverity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="InspectionSeverity"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>SkipStatusCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="SkipStatusCount"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="QualityLevelCount">
+					<Record><PropertyValue Property="Value" Path="QualityLevelCount"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="SkipStatusCount">
+					<Record><PropertyValue Property="Value" Path="SkipStatusCount"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Quality Level"/><PropertyValue Property="SemanticObject" String="QualityLevel"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType/QualityTaskInternalId_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType/QualityTaskOrigin_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType/QualityTaskInternalId"><Annotation Term="Common.SemanticObject" String="QualityTask"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType/QltyPlndEndDteSts">
+				<Annotation Term="Common.Text" Path="QltyPlndEndDteStsTxt"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType/NmbrOfQltyPlndEndDteSts"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType">
+				<Annotation Term="UI.Chart" Qualifier="PlannedEndDate">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Title" String="Tasks by Planned End"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>QltyPlndEndDteSts</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="QltyPlndEndDteSts"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>NmbrOfQltyPlndEndDteSts</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="NmbrOfQltyPlndEndDteSts"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NmbrOfQltyPlndEndDteSts">
+					<Record><PropertyValue Property="Value" Path="NmbrOfQltyPlndEndDteSts"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Quality Tasks"/><PropertyValue Property="SemanticObject" String="QualityTask"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByProcsrType/QualityTaskInternalId_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByProcsrType/QualityTaskOrigin_fc"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByProcsrType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByProcsrType/QualityTaskInternalId"><Annotation Term="Common.SemanticObject" String="QualityTask"/></Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByProcsrType/NmbrOfQltyTskAssgdSts"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByProcsrType">
+				<Annotation Term="UI.Chart" Qualifier="OpenTasks">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Title" String="Tasks by Status and Processor Assignment"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>QltyTskAssgdSts</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="QltyTskAssgdSts"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>NmbrOfQltyTskAssgdSts</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="NmbrOfQltyTskAssgdSts"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="NmbrOfQltyTskAssgdSts">
+					<Record><PropertyValue Property="Value" Path="NmbrOfQltyTskAssgdSts"/><PropertyValue Property="Title" String="Total"/></Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Quality Tasks"/><PropertyValue Property="SemanticObject" String="QualityTask"/><PropertyValue Property="Action" String="manage"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType/InspectionLotHasUsageDecision"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType/InspectionLot"><Annotation Term="Common.SemanticObject" String="InspectionLot"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType">
+				<Annotation Term="UI.FieldGroup" Qualifier="inspLotQuickView">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Inspection Type"/><PropertyValue Property="Value" Path="InspectionLotTypeText"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Plant"/><PropertyValue Property="Value" Path="PlantName"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Material"/><PropertyValue Property="Value" Path="MaterialName"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="End of Inspection"/><PropertyValue Property="Value" Path="InspectionLotEndDate"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Completed Characteristics"/><PropertyValue Property="Value" Path="InspCharacteristicCount"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Inspection Lot"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField"><PropertyValue Property="Label" String="Inspection Lot ID:"/><PropertyValue Property="Value" Path="InspectionLot"/></Record>
+						</PropertyValue>
+					</Record>
+					<Annotation Term="Core.Messages">
+						<Collection>
+							<Record><PropertyValue Property="message" String="UI.HEADERINFO: TypeNamePlural ist obligatorisch"/><PropertyValue Property="severity" String="error"/></Record>
+						</Collection>
+					</Annotation>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation"><PropertyValue Property="Label" String="Manage Usage Decision"/><PropertyValue Property="SemanticObject" String="InspectionLot"/><PropertyValue Property="Action" String="manageUsageDecision"/><PropertyValue Property="RequiresContext" Bool="false"/></Record>
+						<Record Type="UI.DataFieldForAction"><PropertyValue Property="Label" String="Make Quick Usage Decision"/>
+							<PropertyValue Property="Action" String="">
+								<Annotation Term="Core.Messages">
+									<Collection>
+										<Record><PropertyValue Property="message" String="ERROR: Mandatory Value for Action not found"/><PropertyValue Property="severity" String="error"/></Record>
+									</Collection>
+								</Annotation>
+							</PropertyValue><PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="UDReadySelVar">
+					<Record><PropertyValue Property="Text" String=""/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="FilterExpression" String="Syntaxfehler an Position 0: '...Plant...'"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_Customer_VHType/CustomerAccountGroup"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_Customer_VHType/AuthorizationGroup"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_Customer_VHType/IsBusinessPurposeCompleted"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotType/InspectionLotQuantity"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotType/InspectionLotActualQuantity"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotType/InspectionLotDefectiveQuantity"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotType/InspectionLotQuantityUnit"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotType/InspectionLotContainer"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotType/InspectionLotSampleQuantity"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_ProductVHType/GrossWeight"/><Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_ProductVHType/NetWeight"/>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_Supplier_VHType/AuthorizationGroup"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_Supplier_VHType/SupplierAccountGroup"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_Supplier_VHType/IsBusinessPurposeCompleted"><Annotation Term="UI.HiddenFilter"/><Annotation Term="UI.Hidden"/></Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,13 @@
+{
+  "application": "i2d.qm.qualityengineer.ovps1",
+  "version": "9.0.1",
+  "buildNumber": "1",
+  "buildId": "1",
+  "branch": "detached",
+  "revision": "85c682aba45f4caf3e104766c2ffcb981e96e050",
+  "GitURL": "",
+  "buildStatus": "${env.buildStatus}",
+  "translationComplete": "${env.translationComplete}",
+  "cidi": "${env.cidi}",
+  "cfdCM": "${env.cfdCM}"
+}

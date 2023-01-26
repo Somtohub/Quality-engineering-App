@@ -1,0 +1,703 @@
+<!--
+
+    Copyright (C) 2009-2021 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Common.xml">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/sap/QM_QLTYENGINEER_OVP_SRV/$metadata">
+		<edmx:Include Alias="QM_QLTYENGINEER_OVP_SRV" Namespace="QM_QLTYENGINEER_OVP_SRV"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="QM_QLTYENGINEER_OVP_SRVAnnotation"
+			Namespace="sap.cbesh.cestbon.QM_QLTYENGINEER_OVP_SRVAnnotation">
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspectionLotOVPType">
+				<Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+					<Record>
+						<PropertyValue Property="Title">
+							<Record Type="com.sap.vocabularies.UI.v1.DataFieldForIntentBasedNavigation">
+								<PropertyValue Property="SemanticObject" String="InspectionLot"/>
+								<PropertyValue Property="Action" String="manage"/>
+								<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="com.sap.vocabularies.UI.v1.DataFieldForIntentBasedNavigation">
+								<PropertyValue Property="SemanticObject" String="InspectionLot"/>
+								<PropertyValue Property="Action" String="manage"/>
+								<Annotation Term="com.sap.vocabularies.UI.v1.Importance" EnumMember="com.sap.vocabularies.UI.v1.ImportanceType/High"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem" Qualifier="inspLot">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="InspectionLot"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="MaterialName"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Plant"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="InspectionLotQuantity"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="InspectionLotCreatedOn"/>
+						</Record>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="InspectionLot"/>
+							<PropertyValue Property="RequiresContext" Bool="true"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@NAVIGATE_TO_INSPECTION_LOT_OBJECT_PAGE}"/>
+							<PropertyValue Property="Action" String="change"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="SemanticObject" String="InspectionLot"/>
+							<PropertyValue Property="Action" String="manage"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="InspLotSelVar">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotIsTaskListRequired"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="true"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="BillOfOperationsGroup"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="false"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotCompltnStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="1"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataFieldForIntentBasedNavigation">
+							<PropertyValue Property="Label" String="Manage Usage Decision"/>
+							<PropertyValue Property="SemanticObject" String="InspectionLot"/>
+							<PropertyValue Property="Action" String="manageUsageDecision"/>
+							<PropertyValue Property="RequiresContext" Bool="false"/>
+						</Record>
+						<Record Type="UI.DataFieldForAction">
+							<PropertyValue Property="Label" String="Make Quick Usage Decision"/>
+							<PropertyValue Property="Action" String="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/A28214918E0A1F1Make_ud_with_default_code"></PropertyValue>
+							<PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<Annotation Term="UI.IsSummary"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#inspLotQuickView"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="UDReadySelVar">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotRsltRecgStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="4"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotRsltRecgStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="5"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotHasUsageDecision"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="false"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Parameters"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType">
+				<Annotation Term="UI.SelectionVariant" Qualifier="InspSelVar">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotHasUsageDecision"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="com.sap.vocabularies.UI.v1.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="false"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotRsltRecgStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="1"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotRsltRecgStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="2"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotRsltRecgStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="3"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotRsltRecgStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="4"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspLotRsltRecgStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" Int="5"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType">
+				<Annotation Term="UI.SelectionVariant" Qualifier="InspLotOriginVariant">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotOrigin"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="01"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotOrigin"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="03"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotOrigin"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="04"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotOrigin"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="08"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotOrigin"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="10"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType">
+				<Annotation Term="UI.SelectionVariant" Qualifier="QltyLvlByInspLotVariant">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotDynamicLevel"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="0"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotDynamicLevel"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="1"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType">
+				<Annotation Term="UI.SelectionVariant" Qualifier="QltyLvlByCharVariant">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="InspectionLotDynamicLevel"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="3"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType">
+				<Annotation Term="UI.SelectionVariant" Qualifier="QltyCtrlChtWthDvtnVariant">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="QualityControlChartStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="3"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="WorkCenter"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE"/>
+												<PropertyValue Property="Low" String="null"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="WorkCenter"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE"/>
+												<PropertyValue Property="Low" String=""/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="QualityControlChartStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="1"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="QltyCtrlChtDvtnSts"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="1"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="QltyCtrlChtWthDvtnMatVariant">
+					<Record>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="Material"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE"/>
+												<PropertyValue Property="Low" String="null"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="Material"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE"/>
+												<PropertyValue Property="Low" String=""/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="QualityControlChartStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="3"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="PropertyName" PropertyPath="QualityControlChartStatus"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="1"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="QltyCtrlChtDvtnSts"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="1"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType">
+				<Annotation Term="UI.PresentationVariant" Qualifier="card4PresVarViewSwitch1">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Property" PropertyPath="QualityInfoRecordExcptnSpan"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="card4PresVarViewSwitch2">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Property" PropertyPath="QltyInfoRecdBlkSts"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="card4ViewSwitch1">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>QualityInfoRecordExcptnSpanCnt</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="QualityInfoRecordExcptnSpanCnt"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>QualityInfoRecordExcptnSpan</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="QualityInfoRecordExcptnSpan"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Actions"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;i2d.qm.qualityengineer.ovps1_card10_view01_cardtitle}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="card4ViewSwitch2">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>QltyInfoRecdBlkStsCnt</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="QltyInfoRecdBlkStsCnt"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>QltyInfoRecdBlkSts</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="QltyInfoRecdBlkSts"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Actions"/>
+						<PropertyValue Property="Title" String="{@i18n&gt;i2d.qm.qualityengineer.ovps1_card10_view02_cardtitle}"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="card4selViewSwitch1">
+					<Record Type="UI.SelectionVariantType">
+						<PropertyValue Property="Parameters"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="QualityInfoRecordExcptnSpan"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE"/>
+												<PropertyValue Property="Low" String=""/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="card4selViewSwitch2">
+					<Record Type="UI.SelectionVariantType">
+						<PropertyValue Property="Parameters"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="QltyInfoRecdBlkSts"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE"/>
+												<PropertyValue Property="Low" String=""/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType">
+				<Annotation Term="UI.PresentationVariant" Qualifier="card4PresVarViewSwitch1">
+					<Record Type="UI.PresentationVariantType">
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType">
+									<PropertyValue Property="Property" PropertyPath="QltyPlndEndDteSts"/>
+									<PropertyValue Property="Descending" Bool="false"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="card4selViewSwitch1">
+					<Record Type="UI.SelectionVariantType">
+						<PropertyValue Property="Parameters"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="QltyPlndEndDteSts"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/NE"/>
+												<PropertyValue Property="Low" String="null"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

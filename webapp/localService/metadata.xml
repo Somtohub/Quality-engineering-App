@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009-2021 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/></edmx:Reference>
+	<edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/></edmx:Reference>
+	<edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Communication" Namespace="com.sap.vocabularies.Communication.v1"/></edmx:Reference>
+	<edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="QM_QLTYENGINEER_OVP_SRV" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="C_DefectsByDefectCodeType" sap:content-version="1" sap:label="Defects By Defect Code View" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property Name="DefectCode_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="DefectCodeGroup_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="InspectionLot_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="Material_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="Plant_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property MaxLength="4" Name="DefectCode" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="DefectCode_fc" sap:label="Defect Codes" sap:quickinfo="Defect Code" sap:text="DefectCodeText"/><Property MaxLength="8" Name="DefectCodeGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="DefectCodeGroup_fc" sap:label="Defect Code Group"/><Property MaxLength="40" Name="DefectCodeText" Type="Edm.String" sap:label="Short Text for Code"/><Property Name="NumberOfDefects" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Defects"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="Plant_fc" sap:label="Plant"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="Material_fc" sap:label="Material" sap:quickinfo="Material Number"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Ship-To Party)" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property MaxLength="2" Name="DefectCategory" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Defect Category"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:field-control="InspectionLot_fc" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/></EntityType>
+			<EntityType Name="C_DefectsByInspLotOrignType" sap:content-version="1" sap:label="Defects By Inspection Lot Origin View" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property Name="DefectCode_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="DefectCodeGroup_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="InspectionLot_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="Material_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="Plant_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property MaxLength="11" Name="Defect" Type="Edm.String" sap:aggregation-role="dimension" sap:creatable="false" sap:display-format="UpperCase" sap:label="Defect Number" sap:updatable="false"/><Property MaxLength="40" Name="DefectCodeText" Type="Edm.String" sap:label="Short Text for Code"/><Property MaxLength="8" Name="DefectCodeGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="DefectCodeGroup_fc" sap:label="Defect Code Group"/><Property Name="CreationDate" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:creatable="false" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Date on Which Record Was Created" sap:updatable="false"/><Property Name="CalculationDate" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:field-control="InspectionLot_fc" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="Material_fc" sap:label="Material" sap:quickinfo="Material Number"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="Plant_fc" sap:label="Plant"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Ship-To Party)" sap:value-list="standard"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:value-list="standard"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin" sap:text="InspectionLotOriginText"/><Property Name="NumberOfDefects" Type="Edm.Int64" sap:aggregation-role="measure" sap:filterable="false" sap:label="Defects"/><Property MaxLength="4" Name="DefectCode" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="DefectCode_fc" sap:label="Defect Code"/><Property MaxLength="40" Name="InspectionLotOriginText" Type="Edm.String" sap:label="Inspection Lot Origin Detail" sap:quickinfo="Inspection Lot Origin Text"/><Property MaxLength="2" Name="DefectCategory" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Defect Category"/></EntityType>
+			<EntityType Name="C_DefectsByMatlType" sap:content-version="1" sap:label="OVP card Defects by Material" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property Name="InspectionLot_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="Material_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="Plant_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="Material_fc" sap:label="Materials" sap:quickinfo="Material Number" sap:text="MaterialName"/><Property MaxLength="40" Name="MaterialName" Type="Edm.String" sap:label="Material Description"/><Property Name="NumberOfDefects" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Defects"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="Plant_fc" sap:label="Plant"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Ship-To Party)" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property MaxLength="2" Name="DefectCategory" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Defect Category"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:field-control="InspectionLot_fc" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/></EntityType>
+			<EntityType Name="C_InspectionLotOriginValueHelpType" sap:content-version="1" sap:label="Inspection Lot Origin Value Help" sap:value-list="true">
+				<Key><PropertyRef Name="InspectionLotOrigin"/></Key><Property MaxLength="2" Name="InspectionLotOrigin" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Inspection Lot Origin" sap:text="InspectionLotOriginText"/><Property MaxLength="40" Name="InspectionLotOriginText" Type="Edm.String" sap:label="Lot Origin Text" sap:quickinfo="Inspection Lot Origin Text"/></EntityType>
+			<EntityType Name="C_InspectionLotOVPType" sap:content-version="1" sap:label="Inspection Lot Overview Page">
+				<Key>
+					<PropertyRef Name="InspectionLot"/>
+				</Key>
+				<Property MaxLength="12" Name="InspectionLot" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/>
+				<Property MaxLength="40" Name="MaterialName" Type="Edm.String" sap:label="Material Description"/>
+				<Property MaxLength="4" Name="Plant" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant"/>
+				<Property Name="InspectionLotQuantity" Precision="13" Scale="3" Type="Edm.Decimal" sap:label="Inspection Lot Quantity" sap:unit="InspectionLotQuantityUnit"/>
+				<Property Name="InspectionLotCreatedOn" Precision="0" Type="Edm.DateTime" sap:display-format="Date" sap:label="Created On" sap:quickinfo="System Date on Which Data Record Was Created"/>
+				<Property MaxLength="3" Name="InspectionLotQuantityUnit" Type="Edm.String" sap:label="Base Unit of Measure" sap:quickinfo="Base Unit of Measure for Inspection Lot Quantity" sap:semantics="unit-of-measure"/>
+				<Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/>
+				<Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:display-format="UpperCase" sap:label="Inspection Type"/>
+				<Property MaxLength="40" Name="Material" Type="Edm.String" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+				<Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/>
+				<Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/>
+				<Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number"/>
+				<Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer"/>
+				<Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:display-format="UpperCase" sap:label="Manufacturer Material"/>
+				<Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:display-format="UpperCase" sap:label="Purchasing Organization"/>
+				<Property MaxLength="1" Name="InspLotCompltnStatus" Type="Edm.String" sap:display-format="UpperCase" sap:label="Inspection Lot Status"/>
+				<Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/>
+				<Property MaxLength="5" Name="BillOfOperationsGroup" Type="Edm.String"/>
+				<Property MaxLength="4" Name="SerialNumberProfile" Type="Edm.String" sap:display-format="UpperCase" sap:label="Serial No. Profile" sap:quickinfo="Serial Number Profile"/>
+				<Property MaxLength="5" Name="InspLotIsTaskListRequired" Type="Edm.String"/>
+			</EntityType>
+			<EntityType Name="C_InspLotCustValHelpType" sap:content-version="1" sap:label="Customer Value Help">
+				<Key><PropertyRef Name="Customer"/></Key><Property MaxLength="10" Name="Customer" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Number" sap:text="CustomerName"/><Property MaxLength="80" Name="CustomerName" Type="Edm.String" sap:label="Name of Customer"/><Property MaxLength="35" Name="CityName" Type="Edm.String" sap:label="City"/><Property MaxLength="10" Name="PostalCode" Type="Edm.String" sap:display-format="UpperCase" sap:label="Postal Code"/><Property MaxLength="3" Name="Country" Type="Edm.String" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="Country Key"/><Property MaxLength="4" Name="CustomerAccountGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Account Group" sap:quickinfo="Customer Account Group"/><Property MaxLength="4" Name="AuthorizationGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/></EntityType>
+			<EntityType Name="C_InspLothasQtyFltTType" sap:content-version="1" sap:label="Has Inspection Lot Quantity" sap:value-list="true">
+				<Key><PropertyRef Name="InspectionLotHasQuantity"/></Key><Property Name="InspectionLotHasQuantity" Nullable="false" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Checkbox" sap:text="IndicatorText"/><Property MaxLength="60" Name="IndicatorText" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/></EntityType>
+			<EntityType Name="C_InspLotPlanType" sap:content-version="1" sap:label="Task List Assigned to Inspection Lot">
+				<Key><PropertyRef Name="BillOfOperationsGroup"/></Key><Property Name="BillOfOperationsGroup" Nullable="false" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="" sap:quickinfo="Checkbox" sap:text="IndicatorText"/><Property MaxLength="60" Name="IndicatorText" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/></EntityType>
+			<EntityType Name="C_InspLotSuplrValHelpType" sap:content-version="1" sap:label="Supplier Value Help">
+				<Key><PropertyRef Name="Supplier"/></Key><Property MaxLength="10" Name="Supplier" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Account Number of Supplier" sap:text="SupplierName"/><Property MaxLength="80" Name="SupplierName" Type="Edm.String" sap:label="Name of Supplier"/><Property MaxLength="35" Name="CityName" Type="Edm.String" sap:label="City"/><Property MaxLength="10" Name="PostalCode" Type="Edm.String" sap:display-format="UpperCase" sap:label="Postal Code"/><Property MaxLength="3" Name="Country" Type="Edm.String" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="Country Key"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:display-format="UpperCase" sap:label="Purch. Organization" sap:quickinfo="Purchasing Organization"/><Property MaxLength="4" Name="SupplierAccountGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Account group" sap:quickinfo="Vendor account group"/><Property MaxLength="4" Name="AuthorizationGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/></EntityType>
+			<EntityType Name="C_InspUsageDecisionOVPType" sap:content-version="1" sap:label="Usage Decision Overview Page" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/><Property MaxLength="2" Name="InspLotRsltRecgStatus" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Results Recording Status" sap:text="InspLotRsltRecgStatusText"/><Property Name="InspectionLotCount" Type="Edm.Int64" sap:aggregation-role="measure" sap:filterable="false" sap:label="Inspection Lots" sap:semantics="count"/><Property Name="InspectionLotSum" Type="Edm.Int64" sap:aggregation-role="measure" sap:filterable="false"/><Property MaxLength="60" Name="InspLotRsltRecgStatusText" Type="Edm.String" sap:label="Results Recording Status" sap:quickinfo="Results Recording Status for an Inspection Lot Text"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plant"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:value-list="standard"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Ship-To Party)" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property MaxLength="5" Name="InspectionLotHasUsageDecision" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase"/></EntityType>
+			<EntityType Name="C_MaterialvaluehelpType" sap:content-version="1">
+				<Key><PropertyRef Name="Material"/></Key><Property MaxLength="40" Name="Material" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:text="Material_Text"/><Property MaxLength="40" Name="Material_Text" Type="Edm.String" sap:creatable="false" sap:label="Product Description" sap:updatable="false"/><Property MaxLength="4" Name="MaterialType" Type="Edm.String" sap:display-format="UpperCase" sap:label="Material Type"/><Property MaxLength="9" Name="MaterialGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Material Group"/><Property MaxLength="3" Name="MaterialBaseUnit" Type="Edm.String" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/></EntityType>
+			<EntityType Name="C_MM_PlantValueHelpType" sap:content-version="1" sap:label="Plant Value Help" sap:value-list="true">
+				<Key><PropertyRef Name="Plant"/><PropertyRef Name="PurchasingOrganization"/></Key><Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant" sap:text="PlantName"/><Property MaxLength="4" Name="PurchasingOrganization" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Purch. Organization" sap:quickinfo="Purchasing Organization" sap:text="PurchasingOrganizationName"/><Property MaxLength="30" Name="PlantName" Type="Edm.String" sap:label="Plant Name"/><Property MaxLength="20" Name="PurchasingOrganizationName" Type="Edm.String" sap:label="Purch. Org. Name" sap:quickinfo="Purchasing Organization Name"/><Property MaxLength="40" Name="CityName" Type="Edm.String" sap:label="City"/><Property MaxLength="10" Name="PostalCode" Type="Edm.String" sap:display-format="UpperCase" sap:label="Postal Code" sap:quickinfo="City Postal Code"/></EntityType>
+			<EntityType Name="C_MM_StorLocValueHelpType" sap:content-version="1" sap:label="Storage Location Value Help" sap:value-list="true">
+				<Key><PropertyRef Name="StorageLocation"/><PropertyRef Name="Plant"/></Key><Property MaxLength="4" Name="StorageLocation" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Storage Location" sap:text="StorageLocationName"/><Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant" sap:text="PlantName"/><Property MaxLength="16" Name="StorageLocationName" Type="Edm.String" sap:label="Storage Loc. Name" sap:quickinfo="Storage Location Name"/><Property MaxLength="30" Name="PlantName" Type="Edm.String" sap:label="Plant Name"/></EntityType>
+			<EntityType Name="C_PlantvaluehelpType" sap:content-version="1">
+				<Key><PropertyRef Name="Plant"/></Key><Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant" sap:text="PlantName"/><Property MaxLength="30" Name="PlantName" Type="Edm.String" sap:label="Plant Name"/></EntityType>
+			<EntityType Name="C_QltyCtrlChtWthDvtnType" sap:content-version="1" sap:label="Quality Control Chart with deviation" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property MaxLength="12" Name="QualityControlChart" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Control Chart" sap:quickinfo="Control Chart Number"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/><Property MaxLength="1" Name="QualityControlChartStatus" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Status" sap:quickinfo="Control Chart Status"/><Property Name="QltyCtrlChtCnt" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Violations"/><Property MaxLength="8" Name="WorkCenter" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Work Center" sap:value-list="standard"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:value-list="standard"/><Property MaxLength="1" Name="InspectionValuationResult" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Valuation" sap:quickinfo="Inspection Result Valuation"/><Property Name="QltyCtrlChartCreationDate" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Date on Which Record Was Created"/><Property Name="InspectionEndDate" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Inspection End Date"/><Property MaxLength="1" Name="QltyCtrlChtDvtnSts" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Violation Type" sap:quickinfo="Violated Limits Type"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plant"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="10" Name="InspLotSelectionSupplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer" sap:value-list="standard"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Ship-To Party)" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Posted to Inspection Stock"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="4" Name="InspectionLotStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Loc. for Inspection Lot Stock" sap:quickinfo="Storage Location for Inspection Lot Stock"/><Property MaxLength="3" Name="QltyCtrlChartAggrgnCriterion" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="SPC Criterion"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Account Number of Supplier"/><Property MaxLength="1" Name="IsBusinessPurposeCompleted" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="PurposeComplete Flag" sap:quickinfo="Business Purpose Completed Flag"/><Property MaxLength="4" Name="AuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/></EntityType>
+			<EntityType Name="C_QltyEngineerOVPType" sap:content-version="1" sap:label="Quality Engineer Overview Page">
+				<Key><PropertyRef Name="InspectionLot"/></Key><Property MaxLength="12" Name="InspectionLot" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant" sap:value-list="standard"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:display-format="UpperCase" sap:label="Inspection Lot Origin" sap:value-list="fixed-values"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:display-format="UpperCase" sap:label="Inspection Type" sap:value-list="standard"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:value-list="standard"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM" sap:value-list="standard"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:display-format="UpperCase" sap:label="Manufacturer Material" sap:value-list="standard"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:display-format="UpperCase" sap:label="Purchasing Organization" sap:value-list="standard"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:filter-restriction="single-value" sap:label="Posted to Inspection Stock" sap:value-list="fixed-values"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:display-format="UpperCase" sap:label="Storage Location for Batch" sap:value-list="standard"/><Property MaxLength="4" Name="InspectionLotStorageLocation" Type="Edm.String" sap:display-format="UpperCase" sap:label="Storage Loc. for Inspection Lot Stock" sap:quickinfo="Storage Location for Inspection Lot Stock" sap:value-list="standard"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:display-format="UpperCase" sap:label="Customer (Ship-To Party)" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)" sap:value-list="standard"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:display-format="UpperCase" sap:label="Sales Organization" sap:value-list="standard"/><Property MaxLength="1" Name="InspLotRsltRecgStatus" Type="Edm.String" sap:display-format="UpperCase" sap:label="Results Recording Status" sap:quickinfo="Results Recording Status for an Inspection Lot"/></EntityType>
+			<EntityType Name="C_QltyInfoRecdWthExceptionType" sap:content-version="1" sap:label="Q- Info Records with exception" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/><Property MaxLength="6" Name="QltyInProcmtIntID" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Counter" sap:quickinfo="Internal Counter for DB Objects"/><Property Name="QltyInProcmtReleaseValidTo" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Release Until" sap:quickinfo="Date Until Which the Release Is Valid"/><Property MaxLength="2" Name="ProcurementBlock" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Block Function" sap:quickinfo="Function That Will Be Blocked"/><Property MaxLength="60" Name="QualityInfoRecdExcptnSpanDesc" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/><Property MaxLength="1" Name="QualityInfoRecordExcptnSpan" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Duration in Days" sap:text="QualityInfoRecdExcptnSpanDesc"/><Property MaxLength="60" Name="QltyInfoRecdBlkStsTxt" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/><Property MaxLength="1" Name="QltyInfoRecdBlkSts" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Block Level" sap:text="QltyInfoRecdBlkStsTxt"/><Property MaxLength="2" Name="SupplierProcurementBlock" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Block Function" sap:quickinfo="Function That Will Be Blocked"/><Property Name="QualityInfoRecordExcptnSpanCnt" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Q-Info Records with Exceptions" sap:quickinfo="Number of Quality Info Records with Exceptions"/><Property Name="QltyInfoRecdBlkStsCnt" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Blocked Q-Info Records" sap:quickinfo="Number of Blocked Quality Info Records"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plant"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Source Inspection" sap:quickinfo="Inspection Type for Insp. Lot Origin (Source Inspection)"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:value-list="standard"/></EntityType>
+			<EntityType Name="C_QltyInProcmtBlkFuncVHType" sap:content-version="1" sap:label="Q-Info Block Function Value Help">
+				<Key><PropertyRef Name="ProcurementBlock"/></Key><Property MaxLength="2" Name="ProcurementBlock" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Block Function" sap:quickinfo="Function That Will Be Blocked" sap:text="ProcurementBlockText"/><Property MaxLength="40" Name="ProcurementBlockText" Type="Edm.String" sap:label="Short Text"/></EntityType>
+			<EntityType Name="C_QltyLvlByCharType" sap:content-version="1" sap:label="Quality Level By Characteristics" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plant"/><Property MaxLength="1" Name="BillOfOperationsType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Task List Type"/><Property MaxLength="8" Name="BillOfOperationsGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Task List Group" sap:quickinfo="Key for Task List Group"/><Property MaxLength="2" Name="BillOfOperationsVariant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Group Counter"/><Property MaxLength="8" Name="BOOOperationInternalID" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Task List Node" sap:quickinfo="Number of Task List Node"/><Property MaxLength="6" Name="Sequence" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sequence" sap:quickinfo="Sequence of Operations Within a Plan"/><Property Name="QualityLevelInternalID" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Counter" sap:quickinfo="Sequential Counter for Different Quality Levels"/><Property MaxLength="3" Name="InspLotDynamicRule" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dynamic Modification Rule"/><Property MaxLength="4" Name="QltyLevelNextDynRuleStage" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Next Stage" sap:quickinfo="Inspection Stage for Next Inspection"/><Property MaxLength="12" Name="QualityLevelLastOpenInspLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Insp. lot number" sap:quickinfo="Number of Last Inspection Lot Without Usage Decision" sap:value-list="standard"/><Property MaxLength="60" Name="IsInspectionLotSkippedText" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/><Property Name="InspectionLotIsSkipped" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Status" sap:quickinfo="Checkbox" sap:text="IsInspectionLotSkippedText"/><Property Name="SkipStatusCount" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Quality Levels" sap:quickinfo="Inspection Lots Skipped"/><Property Name="QualityLevelCount" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Quality Levels" sap:semantics="count"/><Property MaxLength="1" Name="InspectionLotDynamicLevel" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dynamic Modification Level" sap:quickinfo="Level at Which Dynamic Modification Parameters Are Defined"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Manufacturer Account Number" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Last Inspection Lot with Usage Decision" sap:quickinfo="Number of Last Inspection Lot with Usage Decision" sap:value-list="standard"/></EntityType>
+			<EntityType Name="C_QltyLvlByInspLotType" sap:content-version="1" sap:label="Quality Level for Inspection Lot" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plant"/><Property MaxLength="1" Name="BillOfOperationsType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Task List Type"/><Property MaxLength="8" Name="BillOfOperationsGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Task List Group" sap:quickinfo="Key for Task List Group"/><Property MaxLength="2" Name="BillOfOperationsVariant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Group Counter"/><Property MaxLength="8" Name="BOOOperationInternalID" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Task List Node" sap:quickinfo="Number of Task List Node"/><Property MaxLength="6" Name="Sequence" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sequence" sap:quickinfo="Sequence of Operations Within a Plan"/><Property Name="QualityLevelInternalID" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Counter" sap:quickinfo="Sequential Counter for Different Quality Levels"/><Property MaxLength="3" Name="InspLotDynamicRule" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dynamic Modification Rule"/><Property MaxLength="4" Name="QltyLevelNextDynRuleStage" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Next Stage" sap:quickinfo="Inspection Stage for Next Inspection"/><Property MaxLength="12" Name="QualityLevelLastOpenInspLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Insp. lot number" sap:quickinfo="Number of Last Inspection Lot Without Usage Decision" sap:value-list="standard"/><Property MaxLength="60" Name="IsInspectionLotSkippedText" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/><Property Name="InspectionLotIsSkipped" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Status" sap:quickinfo="Checkbox" sap:text="IsInspectionLotSkippedText"/><Property Name="SkipStatusCount" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Quality Levels" sap:quickinfo="Inspection Lots Skipped"/><Property Name="QualityLevelCount" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Quality Levels" sap:semantics="count"/><Property MaxLength="1" Name="InspectionLotDynamicLevel" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dynamic Modification Level" sap:quickinfo="Level at Which Dynamic Modification Parameters Are Defined"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Manufacturer Account Number" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Last Inspection Lot with Usage Decision" sap:quickinfo="Number of Last Inspection Lot with Usage Decision" sap:value-list="standard"/></EntityType>
+			<EntityType Name="C_QltyLvlBySvrtyType" sap:content-version="1" sap:label="Quality Levels by Severity for OVP card" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:value-list="standard"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plant"/><Property MaxLength="1" Name="BillOfOperationsType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Task List Type"/><Property MaxLength="8" Name="BillOfOperationsGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Task List Group" sap:quickinfo="Key for Task List Group"/><Property MaxLength="2" Name="BillOfOperationsVariant" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Group Counter"/><Property MaxLength="8" Name="BOOOperationInternalID" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Task List Node" sap:quickinfo="Number of Task List Node"/><Property MaxLength="6" Name="Sequence" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sequence" sap:quickinfo="Sequence of Operations Within a Plan"/><Property Name="QualityLevelInternalID" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Counter" sap:quickinfo="Sequential Counter for Different Quality Levels"/><Property Name="QualityLevelCount" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Quality Levels" sap:semantics="count"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Manufacturer Account Number" sap:value-list="standard"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Account Number" sap:value-list="standard"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Type"/><Property MaxLength="4" Name="InspectionOperation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Operation" sap:quickinfo="Operation Number in the Quality Level"/><Property MaxLength="4" Name="InspectionCharacteristic" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Characteristic" sap:quickinfo="Characteristic Number in the Quality Level"/><Property MaxLength="12" Name="QltyLvlIndirectlyChangedBy" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Changed by" sap:quickinfo="User who Last Changed the Quality Level"/><Property MaxLength="12" Name="QltyLvlManuallyChangedBy" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Changed by" sap:quickinfo="User who Manually Changed the Quality Level"/><Property Name="QltyLvlIndirectlyChangedOn" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Changed on" sap:quickinfo="Change Date of the Quality Level"/><Property Name="QltyLvlManuallyChangedOn" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Changed on" sap:quickinfo="Change Date (Manual) of the Quality Level"/><Property MaxLength="12" Name="InspectionLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Last Inspection Lot with Usage Decision" sap:quickinfo="Number of Last Inspection Lot with Usage Decision" sap:value-list="standard"/><Property MaxLength="1" Name="InspLotUsageDecisionValuation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Lot Usage Decision" sap:quickinfo="Valuation (Usage Decision) of the Last Inspection Lot"/><Property MaxLength="1" Name="InspLotUsgeDcsnDynValuation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dyn. Mod. Valuation" sap:quickinfo="Dynamic Modification Valuation of the Last Inspection Lot"/><Property MaxLength="8" Name="SamplingProcedure" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sampling Procedure"/><Property MaxLength="3" Name="InspLotDynamicRule" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dynamic Modification Rule" sap:value-list="standard"/><Property MaxLength="4" Name="QltyLevelNextDynRuleStage" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Next Stage" sap:quickinfo="Inspection Stage for Next Inspection" sap:value-list="standard"/><Property Name="InspLotsWithoutUsageDecision" Type="Edm.Int16" sap:aggregation-role="dimension" sap:label="Lots w/o Decision" sap:quickinfo="Number of Inspection Lots Without Usage Decision"/><Property Name="InspLotsSinceStageChg" Type="Edm.Int16" sap:aggregation-role="dimension" sap:label="Insp. Since Change" sap:quickinfo="Number of Inspections Since Inspection Stage Change"/><Property Name="RjctdInspLotsSinceStgeChg" Type="Edm.Int16" sap:aggregation-role="dimension" sap:label="Not-OK Inspections" sap:quickinfo="Number of Not-OK Inspections (Rejections) Since Stage Change"/><Property MaxLength="1" Name="InspResultDynModifValuation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dyn. mod. valuation" sap:quickinfo="Dynamic Modification Valuation (Accept/Reject) of Char."/><Property MaxLength="1" Name="InspectionValuationResult" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Valuation" sap:quickinfo="Valuation of the Characteristic from Results Recording"/><Property MaxLength="12" Name="QualityLevelLastOpenInspLot" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Insp. lot number" sap:quickinfo="Number of Last Inspection Lot Without Usage Decision" sap:value-list="standard"/><Property Name="QualityLevelLastInspectionOn" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Date of Last Inspec." sap:quickinfo="Date of Last Inspection"/><Property Name="QltyLevelCanceledInspections" Type="Edm.Int16" sap:aggregation-role="dimension" sap:label="CancelledInspections" sap:quickinfo="No. of Cancelled Inspections per Char. Since Last Inspection"/><Property Name="QualityLevelDeletionOn" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Deletion Date" sap:quickinfo="Deletion Date of the Quality Level"/><Property Name="QualityLevelResetOn" Precision="0" Type="Edm.DateTime" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Reset Date" sap:quickinfo="Reset Date of Quality Level"/><Property Name="ChangedDateTime" Precision="0" Type="Edm.DateTimeOffset" sap:aggregation-role="dimension" sap:label="Short Time Stamp" sap:quickinfo="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"/><Property MaxLength="1" Name="InspectionLotDynamicLevel" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Dynamic Modification Level" sap:quickinfo="Level at Which Dynamic Modification Parameters Are Defined"/><Property Name="SkipStatusCount" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Quality Levels" sap:quickinfo="Inspection Lots Skipped"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Inspection Lot Origin"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Storage Location for Batch"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Manufacturer Material"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Purchasing Organization"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Sales Organization"/><Property MaxLength="3" Name="InspectionSeverity" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="NonNegative" sap:label="Inspection Severity" sap:text="InspectionSeverity_Text"/><Property MaxLength="40" Name="InspectionSeverity_Text" Type="Edm.String" sap:creatable="false" sap:label="Short Text" sap:updatable="false"/></EntityType>
+			<EntityType Name="C_QltyTskByDteType" sap:content-version="1" sap:label="Quality Tasks By Date" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property Name="QualityTaskInternalId_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="QualityTaskOrigin_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property MaxLength="12" Name="QualityTaskInternalId" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="QualityTaskInternalId_fc" sap:label="Notification" sap:quickinfo="Notification Number"/><Property MaxLength="60" Name="QltyPlndEndDteStsTxt" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/><Property MaxLength="1" Name="QltyPlndEndDteSts" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Planned End" sap:quickinfo="Planned End Date" sap:text="QltyPlndEndDteStsTxt"/><Property Name="NmbrOfQltyPlndEndDteSts" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Tasks" sap:quickinfo="Tasks on Planned End Date"/><Property MaxLength="2" Name="QualityTaskOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="QualityTaskOrigin_fc" sap:label="Task Origin" sap:quickinfo="Quality Task Origin"/></EntityType>
+			<EntityType Name="C_QltyTskByProcsrType" sap:content-version="1" sap:label="Quality Tasks by Processor" sap:semantics="aggregate">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Nullable="false" Type="Edm.String" sap:filterable="false" sap:sortable="false"/><Property Name="QualityTaskInternalId_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property Name="QualityTaskOrigin_fc" Type="Edm.Byte" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Field Control" sap:sortable="false" sap:updatable="false"/><Property MaxLength="12" Name="QualityTaskInternalId" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="QualityTaskInternalId_fc" sap:label="Notification" sap:quickinfo="Notification Number"/><Property MaxLength="60" Name="QltyTskAssgdStsTxt" Type="Edm.String" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/><Property MaxLength="1" Name="QltyTskAssgdSts" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Processor Assignment" sap:text="QltyTskAssgdStsTxt"/><Property Name="NmbrOfQltyTskAssgdSts" Type="Edm.Int32" sap:aggregation-role="measure" sap:filterable="false" sap:label="Tasks" sap:quickinfo="Tasks with Processor Assignment" sap:semantics="count"/><Property MaxLength="2" Name="QualityTaskOrigin" Type="Edm.String" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:field-control="QualityTaskOrigin_fc" sap:label="Task Origin" sap:quickinfo="Quality Task Origin"/></EntityType>
+			<EntityType Name="C_UsageDecisionReadyOVPType" sap:content-version="1" sap:label="Usage Decision Ready Card">
+				<Key><PropertyRef Name="InspectionLot"/></Key><Property Name="Make_collective_usage_decision_ac" Type="Edm.Boolean" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Action Control" sap:sortable="false" sap:updatable="false"/><Property Name="Make_ud_with_default_code_ac" Type="Edm.Boolean" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Action Control" sap:sortable="false" sap:updatable="false"/><Property MaxLength="12" Name="InspectionLot" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/><Property MaxLength="53" Name="InspectionLotTypeText" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:updatable="false"/><Property MaxLength="39" Name="PlantName" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:updatable="false"/><Property MaxLength="85" Name="MaterialName" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:updatable="false"/><Property Name="InspectionLotEndDate" Precision="0" Type="Edm.DateTime" sap:creatable="false" sap:display-format="Date" sap:label="End of Inspection" sap:quickinfo="End Date of Inspection" sap:updatable="false"/><Property Name="InspCharacteristicCount" Type="Edm.Int32" sap:creatable="false" sap:updatable="false"/><Property MaxLength="5" Name="InspLotHasDeviations" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:updatable="false"/><Property MaxLength="5" Name="InspectionLotIsSkipped" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:updatable="false"/><Property Name="InspLotNmbrOpenShortTermCharc" Type="Edm.Int16" sap:creatable="false" sap:label="Short-Term Charcs" sap:quickinfo="Number of Outstanding Short-Term Chars That Require Confirm." sap:updatable="false"/><Property MaxLength="2" Name="InspectionLotOrigin" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Inspection Lot Origin" sap:updatable="false"/><Property MaxLength="4" Name="BatchStorageLocation" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Storage Location for Batch" sap:updatable="false"/><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM" sap:updatable="false"/><Property MaxLength="10" Name="Supplier" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Supplier's Account Number" sap:updatable="false" sap:value-list="standard"/><Property MaxLength="10" Name="Manufacturer" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Manufacturer" sap:quickinfo="Number of Manufacturer" sap:updatable="false" sap:value-list="standard"/><Property MaxLength="40" Name="ManufacturerPartNmbr" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Manufacturer Material" sap:updatable="false"/><Property MaxLength="4" Name="PurchasingOrganization" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Purchasing Organization" sap:updatable="false"/><Property Name="InspectionLotHasQuantity" Type="Edm.Boolean" sap:creatable="false" sap:display-format="UpperCase" sap:heading="" sap:label="Checkbox" sap:updatable="false"/><Property MaxLength="10" Name="Customer" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Customer (Ship-To Party)" sap:updatable="false" sap:value-list="standard"/><Property MaxLength="10" Name="SoldToParty" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Customer (Sold-To Party)" sap:updatable="false"/><Property MaxLength="4" Name="SalesOrganization" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Sales Organization" sap:updatable="false"/><Property MaxLength="4" Name="Plant" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Plant" sap:updatable="false"/><Property MaxLength="40" Name="Material" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:updatable="false" sap:value-list="standard"/><Property MaxLength="8" Name="InspectionLotType" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Inspection Type" sap:updatable="false"/><Property MaxLength="1" Name="InspLotRsltRecgStatus" Type="Edm.String" sap:creatable="false" sap:display-format="UpperCase" sap:label="Results Recording Status" sap:quickinfo="Results Recording Status for an Inspection Lot" sap:updatable="false"/><Property Name="InspectionLotHasUsageDecision" Type="Edm.Boolean" sap:creatable="false" sap:display-format="UpperCase" sap:label="Usage Decision Made" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_CompanyCodeStdVHType" sap:content-version="1" sap:label="Company Code" sap:value-list="true">
+				<Key><PropertyRef Name="CompanyCode"/></Key><Property MaxLength="4" Name="CompanyCode" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Company Code" sap:text="CompanyCodeName"/><Property MaxLength="25" Name="CompanyCodeName" Type="Edm.String" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/></EntityType>
+			<EntityType Name="I_Customer_VHType" sap:content-version="1" sap:label="Value Help for Customer" sap:value-list="true">
+				<Key><PropertyRef Name="Customer"/></Key><Property MaxLength="10" Name="Customer" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Number" sap:text="CustomerName"/><Property MaxLength="35" Name="OrganizationBPName1" Type="Edm.String" sap:label="Name 1"/><Property MaxLength="35" Name="OrganizationBPName2" Type="Edm.String" sap:label="Name 2"/><Property MaxLength="3" Name="Country" Type="Edm.String" sap:display-format="UpperCase" sap:label="Country" sap:quickinfo="Country Key"/><Property MaxLength="35" Name="CityName" Type="Edm.String" sap:label="City"/><Property MaxLength="35" Name="StreetName" Type="Edm.String" sap:label="Street" sap:quickinfo="Street and House Number"/><Property MaxLength="80" Name="CustomerName" Type="Edm.String" sap:label="Customer Name" sap:quickinfo="Name of Customer"/><Property MaxLength="4" Name="CustomerAccountGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Account Group" sap:quickinfo="Customer Account Group"/><Property MaxLength="4" Name="AuthorizationGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/><Property MaxLength="1" Name="IsBusinessPurposeCompleted" Type="Edm.String" sap:display-format="UpperCase" sap:label="Purpose Complete Flag" sap:quickinfo="Business Purpose Completed Flag"/></EntityType>
+			<EntityType Name="I_InspectionLotStdVHType" sap:content-version="1" sap:label="Inspection Lot" sap:value-list="true">
+				<Key><PropertyRef Name="InspectionLot"/></Key><Property MaxLength="12" Name="InspectionLot" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Inspection Lot" sap:quickinfo="Inspection Lot Number"/></EntityType>
+			<EntityType Name="I_InspectionLotTypeType" sap:content-version="1" sap:label="Inspection Lot Type" sap:value-list="true">
+				<Key><PropertyRef Name="InspectionLotType"/></Key><Property MaxLength="8" Name="InspectionLotType" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Inspection Type" sap:text="InspectionLotType_Text"/><Property MaxLength="40" Name="InspectionLotType_Text" Type="Edm.String" sap:creatable="false" sap:label="Inspection Type Text" sap:updatable="false"/><Property MaxLength="3" Name="BillOfOperationsUsage" Type="Edm.String" sap:display-format="UpperCase" sap:label="Task List Usage"/><Property MaxLength="8" Name="SelectedCodeSet" Type="Edm.String" sap:display-format="UpperCase" sap:label="UD Selected Set" sap:quickinfo="Selected Set for Usage Decision"/><Property MaxLength="1" Name="SelectedCodeSetHasSamePlant" Type="Edm.String" sap:display-format="UpperCase" sap:label="Sel. Set in Plant" sap:quickinfo="Selected Set Must Be Available in Plant"/></EntityType>
+			<EntityType Name="I_InspLotDynamicRuleStdVHType" sap:content-version="1" sap:label="Dynamic modification rule" sap:value-list="true">
+				<Key><PropertyRef Name="InspLotDynamicRule"/></Key><Property MaxLength="3" Name="InspLotDynamicRule" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Dynamic Modification Rule" sap:text="InspLotDynamicRule_Text"/><Property MaxLength="40" Name="InspLotDynamicRule_Text" Type="Edm.String" sap:creatable="false" sap:label="Short Text" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_InspLotDynRuleStageStdVHType" sap:content-version="1" sap:label="Stage of dynamic modification rule" sap:value-list="true">
+				<Key><PropertyRef Name="InspLotDynamicRule"/><PropertyRef Name="InspLotDynRuleStage"/></Key><Property MaxLength="3" Name="InspLotDynamicRule" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Dynamic Modification Rule"/><Property MaxLength="4" Name="InspLotDynRuleStage" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Inspection Stage" sap:text="InspLotDynRuleStage_Text"/><Property MaxLength="40" Name="InspLotDynRuleStage_Text" Type="Edm.String" sap:creatable="false" sap:label="Short Text" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_MaterialStdVHType" sap:content-version="1" sap:label="Material" sap:value-list="true">
+				<Key><PropertyRef Name="Material"/></Key><Property MaxLength="40" Name="Material" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:text="Material_Text"/><Property MaxLength="40" Name="Material_Text" Type="Edm.String" sap:creatable="false" sap:label="Material Description" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_MatlQualityAuthGroupType" sap:content-version="1" sap:label="Material Quality Authorization Group" sap:value-list="true">
+				<Key><PropertyRef Name="MatlQualityAuthorizationGroup"/></Key><Property MaxLength="6" Name="MatlQualityAuthorizationGroup" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="QM Material Authorization" sap:quickinfo="Material Authorization Group for Activities in QM" sap:text="MatlQualityAuthorizationGroup_Text"/><Property MaxLength="40" Name="MatlQualityAuthorizationGroup_Text" Type="Edm.String" sap:creatable="false" sap:label="QM Material Authorization Text" sap:quickinfo="Material Authorization Group Text for Activities in QM" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_PurchasingOrganizationType" sap:content-version="1" sap:label="Purchasing Organization" sap:value-list="true">
+				<Key><PropertyRef Name="PurchasingOrganization"/></Key><Property MaxLength="4" Name="PurchasingOrganization" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Purchasing Organization" sap:text="PurchasingOrganizationName"/><Property MaxLength="20" Name="PurchasingOrganizationName" Type="Edm.String" sap:label="Purch. Org. Name" sap:quickinfo="Purchasing Organization Name"/><Property MaxLength="4" Name="CompanyCode" Type="Edm.String" sap:display-format="UpperCase" sap:label="Company Code"/></EntityType>
+			<EntityType Name="I_SalesOrganizationType" sap:content-version="1" sap:label="Sales Organization" sap:value-list="true">
+				<Key><PropertyRef Name="SalesOrganization"/></Key><Property MaxLength="4" Name="SalesOrganization" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Sales Organization" sap:text="SalesOrganization_Text"/><Property MaxLength="20" Name="SalesOrganization_Text" Type="Edm.String" sap:creatable="false" sap:label="Sales Organization Description" sap:updatable="false"/><Property MaxLength="5" Name="SalesOrganizationCurrency" Type="Edm.String" sap:label="Statistics Currency" sap:quickinfo="Statistics currency" sap:semantics="currency-code"/><Property MaxLength="4" Name="CompanyCode" Type="Edm.String" sap:display-format="UpperCase" sap:label="Company Code" sap:quickinfo="Company code of the sales organization" sap:value-list="standard"/><Property MaxLength="10" Name="IntercompanyBillingCustomer" Type="Edm.String" sap:display-format="UpperCase" sap:label="Cust.inter-co.bill." sap:quickinfo="Customer number for intercompany billing" sap:value-list="standard"/></EntityType>
+			<EntityType Name="I_Supplier_VHType" sap:content-version="1" sap:label="Value Help for Supplier" sap:value-list="true">
+				<Key><PropertyRef Name="Supplier"/></Key><Property MaxLength="10" Name="Supplier" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Supplier" sap:quickinfo="Account Number of Supplier" sap:text="SupplierName"/><Property MaxLength="35" Name="SupplierName" Type="Edm.String" sap:label="Name" sap:quickinfo="Name 1"/><Property MaxLength="4" Name="AuthorizationGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Authorization" sap:quickinfo="Authorization Group"/><Property MaxLength="4" Name="SupplierAccountGroup" Type="Edm.String" sap:display-format="UpperCase" sap:label="Account group" sap:quickinfo="Vendor account group"/><Property MaxLength="1" Name="IsBusinessPurposeCompleted" Type="Edm.String" sap:display-format="UpperCase" sap:label="PurposeComplete Flag" sap:quickinfo="Business Purpose Completed Flag"/></EntityType>
+			<EntityType Name="I_WrkCtrBySemanticKeyStdVHType" sap:content-version="1" sap:label="Work Center By Semantic Key" sap:value-list="true">
+				<Key><PropertyRef Name="Plant"/><PropertyRef Name="WorkCenter"/></Key><Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant"/><Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Work Center" sap:text="WorkCenter_Text"/><Property MaxLength="40" Name="WorkCenter_Text" Type="Edm.String" sap:creatable="false" sap:label="Work Center Text" sap:updatable="false"/><Property MaxLength="8" Name="WorkCenterInternalID" Type="Edm.String" sap:display-format="NonNegative" sap:label="Object ID" sap:quickinfo="Object ID of the resource"/></EntityType>
+			<EntityContainer Name="QM_QLTYENGINEER_OVP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType" Name="C_DefectsByDefectCode" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType" Name="C_DefectsByInspLotOrign" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType" Name="C_DefectsByMatl" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_InspectionLotOriginValueHelpType" Name="C_InspectionLotOriginValueHelp" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_InspectionLotOVPType" Name="C_InspectionLotOVP" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_InspLotCustValHelpType" Name="C_InspLotCustValHelp" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_InspLothasQtyFltTType" Name="C_InspLothasQtyFltT" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_InspLotPlanType" Name="C_InspLotPlan" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_InspLotSuplrValHelpType" Name="C_InspLotSuplrValHelp" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType" Name="C_InspUsageDecisionOVP" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_MaterialvaluehelpType" Name="C_Materialvaluehelp" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_MM_PlantValueHelpType" Name="C_MM_PlantValueHelp" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_MM_StorLocValueHelpType" Name="C_MM_StorLocValueHelp" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_PlantvaluehelpType" Name="C_Plantvaluehelp" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType" Name="C_QltyCtrlChtWthDvtn" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType" Name="C_QltyEngineerOVP" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType" Name="C_QltyInfoRecdWthException" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyInProcmtBlkFuncVHType" Name="C_QltyInProcmtBlkFuncVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType" Name="C_QltyLvlByChar" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType" Name="C_QltyLvlByInspLot" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType" Name="C_QltyLvlBySvrty" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByDteType" Name="C_QltyTskByDte" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_QltyTskByProcsrType" Name="C_QltyTskByProcsr" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType" Name="C_UsageDecisionReadyOVP" sap:content-version="1" sap:creatable="false" sap:deletable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_CompanyCodeStdVHType" Name="I_CompanyCodeStdVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_Customer_VHType" Name="I_Customer_VH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotStdVHType" Name="I_InspectionLotStdVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_InspectionLotTypeType" Name="I_InspectionLotType" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_InspLotDynamicRuleStdVHType" Name="I_InspLotDynamicRuleStdVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_InspLotDynRuleStageStdVHType" Name="I_InspLotDynRuleStageStdVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_MaterialStdVHType" Name="I_MaterialStdVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_MatlQualityAuthGroupType" Name="I_MatlQualityAuthGroup" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_PurchasingOrganizationType" Name="I_PurchasingOrganization" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_SalesOrganizationType" Name="I_SalesOrganization" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_Supplier_VHType" Name="I_Supplier_VH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/><EntitySet EntityType="QM_QLTYENGINEER_OVP_SRV.I_WrkCtrBySemanticKeyStdVHType" Name="I_WrkCtrBySemanticKeyStdVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/>
+				<FunctionImport EntitySet="C_UsageDecisionReadyOVP" Name="A28214918EMake_collective_usage_decision" ReturnType="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType" m:HttpMethod="POST" sap:action-for="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType" sap:applicable-path="Make_collective_usage_decision_ac"><Parameter MaxLength="12" Mode="In" Name="InspectionLot" Type="Edm.String"/></FunctionImport>
+				<FunctionImport EntitySet="C_UsageDecisionReadyOVP" Name="A28214918E0A1F1Make_ud_with_default_code" ReturnType="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType" m:HttpMethod="POST" sap:action-for="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType" sap:applicable-path="Make_ud_with_default_code_ac"><Parameter MaxLength="12" Mode="In" Name="InspectionLot" Type="Edm.String"/></FunctionImport>
+			</EntityContainer>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByDefectCodeType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByInspLotOrignType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_DefectsByMatlType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material"/><PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Material"/><PropertyValue Property="ValueListProperty" String="Material"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Material_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspUsageDecisionOVPType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/WorkCenter" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Work Center By Semantic Key"/><PropertyValue Property="CollectionPath" String="I_WrkCtrBySemanticKeyStdVH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="WorkCenter"/><PropertyValue Property="ValueListProperty" String="WorkCenter"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Plant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="WorkCenter_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="WorkCenterInternalID"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material"/><PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Material"/><PropertyValue Property="ValueListProperty" String="Material"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Material_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/InspLotSelectionSupplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspLotSelectionSupplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyCtrlChtWthDvtnType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Plant Value Help"/><PropertyValue Property="CollectionPath" String="C_MM_PlantValueHelp"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/><PropertyValue Property="ValueListProperty" String="Plant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PurchasingOrganization"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PlantName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PurchasingOrganizationName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PostalCode"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/InspectionLotOrigin" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot Origin Value Help"/><PropertyValue Property="CollectionPath" String="C_InspectionLotOriginValueHelp"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLotOrigin"/><PropertyValue Property="ValueListProperty" String="InspectionLotOrigin"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="InspectionLotOriginText"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation><Annotation Term="Common.ValueListWithFixedValues"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/InspectionLotType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot Type"/><PropertyValue Property="CollectionPath" String="I_InspectionLotType"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLotType"/><PropertyValue Property="ValueListProperty" String="InspectionLotType"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="InspectionLotType_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="BillOfOperationsUsage"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SelectedCodeSet"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SelectedCodeSetHasSamePlant"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material"/><PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Material"/><PropertyValue Property="ValueListProperty" String="Material"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Material_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/MatlQualityAuthorizationGroup" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material Quality Authorization Group"/><PropertyValue Property="CollectionPath" String="I_MatlQualityAuthGroup"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="MatlQualityAuthorizationGroup"/><PropertyValue Property="ValueListProperty" String="MatlQualityAuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="MatlQualityAuthorizationGroup_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/ManufacturerPartNmbr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material"/><PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ManufacturerPartNmbr"/><PropertyValue Property="ValueListProperty" String="Material"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Material_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/PurchasingOrganization" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Purchasing Organization"/><PropertyValue Property="CollectionPath" String="I_PurchasingOrganization"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="PurchasingOrganization"/><PropertyValue Property="ValueListProperty" String="PurchasingOrganization"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PurchasingOrganizationName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/InspectionLotHasQuantity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Has Inspection Lot Quantity"/><PropertyValue Property="CollectionPath" String="C_InspLothasQtyFltT"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLotHasQuantity"/><PropertyValue Property="ValueListProperty" String="InspectionLotHasQuantity"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IndicatorText"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation><Annotation Term="Common.ValueListWithFixedValues"/></Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/BatchStorageLocation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Storage Location Value Help"/><PropertyValue Property="CollectionPath" String="C_MM_StorLocValueHelp"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BatchStorageLocation"/><PropertyValue Property="ValueListProperty" String="StorageLocation"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/><PropertyValue Property="ValueListProperty" String="Plant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StorageLocationName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PlantName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/InspectionLotStorageLocation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Storage Location Value Help"/><PropertyValue Property="CollectionPath" String="C_MM_StorLocValueHelp"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLotStorageLocation"/><PropertyValue Property="ValueListProperty" String="StorageLocation"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/><PropertyValue Property="ValueListProperty" String="Plant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StorageLocationName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PlantName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/SoldToParty" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="SoldToParty"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyEngineerOVPType/SalesOrganization" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Sales Organization"/><PropertyValue Property="CollectionPath" String="I_SalesOrganization"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="SalesOrganization"/><PropertyValue Property="ValueListProperty" String="SalesOrganization"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SalesOrganization_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SalesOrganizationCurrency"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IntercompanyBillingCustomer"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyInfoRecdWthExceptionType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/QualityLevelLastOpenInspLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="CollectionPath" String="I_InspectionLotStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="QualityLevelLastOpenInspLot"/><PropertyValue Property="ValueListProperty" String="InspectionLot"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByCharType/InspectionLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="CollectionPath" String="I_InspectionLotStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLot"/><PropertyValue Property="ValueListProperty" String="InspectionLot"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/QualityLevelLastOpenInspLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="CollectionPath" String="I_InspectionLotStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="QualityLevelLastOpenInspLot"/><PropertyValue Property="ValueListProperty" String="InspectionLot"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlByInspLotType/InspectionLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="CollectionPath" String="I_InspectionLotStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLot"/><PropertyValue Property="ValueListProperty" String="InspectionLot"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material"/><PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Material"/><PropertyValue Property="ValueListProperty" String="Material"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Material_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/InspectionLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="CollectionPath" String="I_InspectionLotStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLot"/><PropertyValue Property="ValueListProperty" String="InspectionLot"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/InspLotDynamicRule" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Dynamic modification rule"/><PropertyValue Property="CollectionPath" String="I_InspLotDynamicRuleStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspLotDynamicRule"/><PropertyValue Property="ValueListProperty" String="InspLotDynamicRule"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="InspLotDynamicRule_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/QltyLevelNextDynRuleStage" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Stage of dynamic modification rule"/><PropertyValue Property="CollectionPath" String="I_InspLotDynRuleStageStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InspLotDynamicRule"/><PropertyValue Property="ValueListProperty" String="InspLotDynamicRule"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="QltyLevelNextDynRuleStage"/><PropertyValue Property="ValueListProperty" String="InspLotDynRuleStage"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="InspLotDynRuleStage_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_QltyLvlBySvrtyType/QualityLevelLastOpenInspLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Inspection Lot"/><PropertyValue Property="CollectionPath" String="I_InspectionLotStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="QualityLevelLastOpenInspLot"/><PropertyValue Property="ValueListProperty" String="InspectionLot"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType/Supplier" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType/Manufacturer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Manufacturer"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType/Customer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_UsageDecisionReadyOVPType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Material"/><PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Material"/><PropertyValue Property="ValueListProperty" String="Material"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Material_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_SalesOrganizationType/CompanyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="CollectionPath" String="I_CompanyCodeStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCodeName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.I_SalesOrganizationType/IntercompanyBillingCustomer" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Customer"/><PropertyValue Property="CollectionPath" String="I_Customer_VH"/><PropertyValue Bool="true" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="IntercompanyBillingCustomer"/><PropertyValue Property="ValueListProperty" String="Customer"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName1"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="OrganizationBPName2"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="StreetName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue EnumMember="None" Property="Rollup"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_DefectsByDefectCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>DefectCode_fc</PropertyPath>
+								<PropertyPath>DefectCodeGroup_fc</PropertyPath>
+								<PropertyPath>InspectionLot_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+								<PropertyPath>Plant_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>NumberOfDefects</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>DefectCode_fc</PropertyPath>
+								<PropertyPath>DefectCodeGroup_fc</PropertyPath>
+								<PropertyPath>InspectionLot_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+								<PropertyPath>Plant_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_DefectsByInspLotOrign" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>DefectCode_fc</PropertyPath>
+								<PropertyPath>DefectCodeGroup_fc</PropertyPath>
+								<PropertyPath>InspectionLot_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+								<PropertyPath>Plant_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>NumberOfDefects</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>DefectCode_fc</PropertyPath>
+								<PropertyPath>DefectCodeGroup_fc</PropertyPath>
+								<PropertyPath>InspectionLot_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+								<PropertyPath>Plant_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_DefectsByMatl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>InspectionLot_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+								<PropertyPath>Plant_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>NumberOfDefects</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>InspectionLot_fc</PropertyPath>
+								<PropertyPath>Material_fc</PropertyPath>
+								<PropertyPath>Plant_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_InspUsageDecisionOVP" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>InspectionLotCount</PropertyPath>
+								<PropertyPath>InspectionLotSum</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_InspectionLotOriginValueHelp" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>P_Language</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>P_Language</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyCtrlChtWthDvtn" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>QltyCtrlChtCnt</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyEngineerOVP" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="FilterExpressionRestrictions">
+							<Collection>
+								<Record><PropertyValue Property="Property" PropertyPath="InspectionLotHasQuantity"/><PropertyValue Property="AllowedExpressions" String="SingleValue"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyInfoRecdWthException" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>QualityInfoRecordExcptnSpanCnt</PropertyPath>
+								<PropertyPath>QltyInfoRecdBlkStsCnt</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyLvlByChar" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>SkipStatusCount</PropertyPath>
+								<PropertyPath>QualityLevelCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyLvlByInspLot" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>SkipStatusCount</PropertyPath>
+								<PropertyPath>QualityLevelCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyLvlBySvrty" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>QualityLevelCount</PropertyPath>
+								<PropertyPath>SkipStatusCount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyTskByDte" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>QualityTaskInternalId_fc</PropertyPath>
+								<PropertyPath>QualityTaskOrigin_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>NmbrOfQltyPlndEndDteSts</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>QualityTaskInternalId_fc</PropertyPath>
+								<PropertyPath>QualityTaskOrigin_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_QltyTskByProcsr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>QualityTaskInternalId_fc</PropertyPath>
+								<PropertyPath>QualityTaskOrigin_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>NmbrOfQltyTskAssgdSts</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>QualityTaskInternalId_fc</PropertyPath>
+								<PropertyPath>QualityTaskOrigin_fc</PropertyPath>
+								<PropertyPath>ID</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.QM_QLTYENGINEER_OVP_SRV_Entities/C_UsageDecisionReadyOVP" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>Make_collective_usage_decision_ac</PropertyPath>
+								<PropertyPath>Make_ud_with_default_code_ac</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>Make_collective_usage_decision_ac</PropertyPath>
+								<PropertyPath>Make_ud_with_default_code_ac</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_InspectionLotOVPType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>InspectionLot</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_MM_PlantValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>PurchasingOrganization</PropertyPath>
+						<PropertyPath>Plant</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="QM_QLTYENGINEER_OVP_SRV.C_MM_StorLocValueHelpType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>StorageLocation</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<atom:link href="./sap/opu/odata/sap/QM_QLTYENGINEER_OVP_SRV/$metadata" rel="self" xmlns:atom="http://www.w3.org/2005/Atom"/>
+			<atom:link href="./sap/opu/odata/sap/QM_QLTYENGINEER_OVP_SRV/$metadata" rel="latest-version" xmlns:atom="http://www.w3.org/2005/Atom"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

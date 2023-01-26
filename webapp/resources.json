@@ -1,0 +1,550 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "Component-dbg.js",
+			"module": "i2d/qm/qualityengineer/ovps1/Component.js",
+			"size": 562,
+			"isDebug": true,
+			"required": [
+				"sap/ovp/app/Component.js"
+			]
+		},
+		{
+			"name": "Component-h2-preload-dbg.js",
+			"module": "i2d/qm/qualityengineer/ovps1/Component-h2-preload.js",
+			"size": 19417,
+			"isDebug": true,
+			"merged": true,
+			"required": [
+				"sap/ovp/app/Component.js"
+			],
+			"included": [
+				"i2d/qm/qualityengineer/ovps1/Component.js",
+				"i2d/qm/qualityengineer/ovps1/manifest.json",
+				"i2d/qm/qualityengineer/ovps1/ext/customFilter.controller.js",
+				"i2d/qm/qualityengineer/ovps1/ext/model/ExtensionHelper.js",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ar.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_bg.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ca.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_cs.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_da.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_de.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_el.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_sappsd.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_saptrc.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_es.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_et.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_fi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_fr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hu.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_it.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_iw.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ja.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_kk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ko.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_lt.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_lv.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ms.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_nl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_no.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_pl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_pt.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ro.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ru.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sh.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sv.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_th.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_tr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_uk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_vi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_CN.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_TW.properties"
+			]
+		},
+		{
+			"name": "Component-h2-preload.js",
+			"module": "i2d/qm/qualityengineer/ovps1/Component-h2-preload.js",
+			"size": 19340,
+			"merged": true,
+			"required": [
+				"sap/ovp/app/Component.js"
+			],
+			"included": [
+				"i2d/qm/qualityengineer/ovps1/Component.js",
+				"i2d/qm/qualityengineer/ovps1/manifest.json",
+				"i2d/qm/qualityengineer/ovps1/ext/customFilter.controller.js",
+				"i2d/qm/qualityengineer/ovps1/ext/model/ExtensionHelper.js",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ar.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_bg.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ca.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_cs.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_da.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_de.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_el.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_sappsd.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_saptrc.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_es.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_et.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_fi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_fr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hu.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_it.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_iw.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ja.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_kk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ko.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_lt.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_lv.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ms.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_nl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_no.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_pl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_pt.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ro.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ru.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sh.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sv.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_th.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_tr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_uk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_vi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_CN.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_TW.properties"
+			]
+		},
+		{
+			"name": "Component-preload.js",
+			"module": "i2d/qm/qualityengineer/ovps1/Component-preload.js",
+			"size": 217645,
+			"merged": true,
+			"required": [
+				"sap/ovp/app/Component.js"
+			],
+			"included": [
+				"i2d/qm/qualityengineer/ovps1/Component.js",
+				"i2d/qm/qualityengineer/ovps1/ext/customFilter.controller.js",
+				"i2d/qm/qualityengineer/ovps1/ext/model/ExtensionHelper.js",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ar.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_bg.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ca.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_cs.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_da.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_de.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_el.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_sappsd.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_saptrc.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_es.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_et.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_fi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_fr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_hu.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_it.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_iw.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ja.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_kk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ko.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_lt.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_lv.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ms.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_nl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_no.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_pl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_pt.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ro.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_ru.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sh.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sl.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_sv.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_th.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_tr.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_uk.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_vi.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_CN.properties",
+				"i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_TW.properties",
+				"i2d/qm/qualityengineer/ovps1/manifest.json"
+			]
+		},
+		{
+			"name": "Component.js",
+			"module": "i2d/qm/qualityengineer/ovps1/Component.js",
+			"size": 327,
+			"required": [
+				"sap/ovp/app/Component.js"
+			]
+		},
+		{
+			"name": "annotations/annotation.xml",
+			"size": 29699
+		},
+		{
+			"name": "ext/customFilter-dbg.controller.js",
+			"module": "i2d/qm/qualityengineer/ovps1/ext/customFilter.controller.js",
+			"size": 3838,
+			"isDebug": true,
+			"required": [
+				"i2d/qm/qualityengineer/ovps1/ext/model/ExtensionHelper.js"
+			]
+		},
+		{
+			"name": "ext/customFilter.controller.js",
+			"module": "i2d/qm/qualityengineer/ovps1/ext/customFilter.controller.js",
+			"size": 2082,
+			"required": [
+				"i2d/qm/qualityengineer/ovps1/ext/model/ExtensionHelper.js"
+			]
+		},
+		{
+			"name": "ext/model/ExtensionHelper-dbg.js",
+			"module": "i2d/qm/qualityengineer/ovps1/ext/model/ExtensionHelper.js",
+			"size": 10451,
+			"isDebug": true
+		},
+		{
+			"name": "ext/model/ExtensionHelper.js",
+			"module": "i2d/qm/qualityengineer/ovps1/ext/model/ExtensionHelper.js",
+			"size": 5611
+		},
+		{
+			"name": "i18n/i18n.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n.properties",
+			"size": 3462,
+			"locale": "",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ar.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_ar.properties",
+			"size": 6788,
+			"locale": "ar",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_bg.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_bg.properties",
+			"size": 8176,
+			"locale": "bg",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ca.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_ca.properties",
+			"size": 3722,
+			"locale": "ca",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_cs.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_cs.properties",
+			"size": 3973,
+			"locale": "cs",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_da.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_da.properties",
+			"size": 3437,
+			"locale": "da",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_de.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_de.properties",
+			"size": 3510,
+			"locale": "de",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_el.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_el.properties",
+			"size": 8984,
+			"locale": "el",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_en.properties",
+			"size": 3317,
+			"locale": "en",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en_US_sappsd.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_sappsd.properties",
+			"size": 9629,
+			"locale": "en_US_sappsd",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en_US_saptrc.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_en_US_saptrc.properties",
+			"size": 4260,
+			"locale": "en_US_saptrc",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_es.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_es.properties",
+			"size": 3699,
+			"locale": "es",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_et.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_et.properties",
+			"size": 3619,
+			"locale": "et",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_fi.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_fi.properties",
+			"size": 3841,
+			"locale": "fi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_fr.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_fr.properties",
+			"size": 3826,
+			"locale": "fr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hi.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_hi.properties",
+			"size": 7122,
+			"locale": "hi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hr.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_hr.properties",
+			"size": 3472,
+			"locale": "hr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hu.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_hu.properties",
+			"size": 4172,
+			"locale": "hu",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_it.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_it.properties",
+			"size": 3540,
+			"locale": "it",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_iw.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_iw.properties",
+			"size": 6408,
+			"locale": "iw",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ja.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_ja.properties",
+			"size": 4448,
+			"locale": "ja",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_kk.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_kk.properties",
+			"size": 8415,
+			"locale": "kk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ko.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_ko.properties",
+			"size": 4073,
+			"locale": "ko",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_lt.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_lt.properties",
+			"size": 3738,
+			"locale": "lt",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_lv.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_lv.properties",
+			"size": 4002,
+			"locale": "lv",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ms.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_ms.properties",
+			"size": 3472,
+			"locale": "ms",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_nl.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_nl.properties",
+			"size": 3426,
+			"locale": "nl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_no.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_no.properties",
+			"size": 3436,
+			"locale": "no",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_pl.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_pl.properties",
+			"size": 3644,
+			"locale": "pl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_pt.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_pt.properties",
+			"size": 3756,
+			"locale": "pt",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ro.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_ro.properties",
+			"size": 3790,
+			"locale": "ro",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ru.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_ru.properties",
+			"size": 8413,
+			"locale": "ru",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sh.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_sh.properties",
+			"size": 3410,
+			"locale": "sh",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sk.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_sk.properties",
+			"size": 3864,
+			"locale": "sk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sl.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_sl.properties",
+			"size": 3429,
+			"locale": "sl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sv.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_sv.properties",
+			"size": 3615,
+			"locale": "sv",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_th.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_th.properties",
+			"size": 8199,
+			"locale": "th",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_tr.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_tr.properties",
+			"size": 3813,
+			"locale": "tr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_uk.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_uk.properties",
+			"size": 7951,
+			"locale": "uk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_vi.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_vi.properties",
+			"size": 5125,
+			"locale": "vi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_zh_CN.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_CN.properties",
+			"size": 4091,
+			"locale": "zh_CN",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_zh_TW.properties",
+			"module": "i2d/qm/qualityengineer/ovps1/i18n/i18n_zh_TW.properties",
+			"size": 4028,
+			"locale": "zh_TW",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "localService/QM_QLTYENGINEER_OVP_ANNO_MDL.xml",
+			"size": 62557
+		},
+		{
+			"name": "localService/metadata.xml",
+			"size": 179724
+		},
+		{
+			"name": "localService/mockserver-dbg.js",
+			"size": 4363,
+			"isDebug": true
+		},
+		{
+			"name": "localService/mockserver.js",
+			"size": 1976
+		},
+		{
+			"name": "manifest.json",
+			"module": "i2d/qm/qualityengineer/ovps1/manifest.json",
+			"size": 21470
+		},
+		{
+			"name": "resources.json",
+			"size": 11837
+		},
+		{
+			"name": "version.json",
+			"size": 358
+		}
+	]
+}
